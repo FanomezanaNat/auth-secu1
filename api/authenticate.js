@@ -1,9 +1,9 @@
 const admin = require("firebase-admin");
 
 const authenticate = async (req, res, next) => {
-  const { email } = req.body;
+  const { email,password} = req.body;
 
-  if (!email) {
+  if (!email && !password) {
     return res.status(401).send("Unauthorized: No email provided");
   }
 
